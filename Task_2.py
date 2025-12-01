@@ -14,7 +14,7 @@ summ = (math.sqrt(pow(x1-x2, 2)+pow(y1-y2, 2)))
 print(summ)
 
 #Задание 3
-num = str(input('Введите четырёх значное число: '))
+num = input('Введите четырёх значное число: ')
 print('Цифра в позиции тысяч равна ',num[0])
 print('Цифра в позиции сотен равна ', num[1])
 print('Цифра в позиции десятков равна ', num[2])
@@ -39,23 +39,41 @@ print(summ)
 
 #Задание 7
 number = int(input('Введите номер своего места: '))
-if number <= 3:
-    print('Номер вашего купе:', 1)
-elif number <= 7:
-    print('Номер вашего купе:', 2)
-elif number <= 11:
-    print('Номер вашего купе:', 3)
-elif number <= 15:
-    print('Номер вашего купе:', 4)
-elif number <= 20:
-    print('Номер вашего купе:', 5)
-elif number <= 24:
-    print('Номер вашего купе:', 6)
-elif number <= 28:
-    print('Номер вашего купе:', 7)
-elif number <= 32:
-    print('Номер вашего купе:', 8)
-elif number <= 35:
-    print('Номер вашего купе:',9)
-else:
-    print('Нету такого места')
+
+n1 = number % 2 or number != 0
+number = number <= 4
+
+n2 = number % 2 or number != 0
+number = number <= 7
+
+n3 = number % 2 or number != 0
+number = number <= 11
+
+n4 = number % 2 or number != 0
+number = number <= 16
+
+n5 = number % 2 or number != 0
+number = number <= 20
+
+n6 = number % 2 or number != 0
+number = number <= 24
+
+n7 = number % 2 or number != 0
+number = number <= 28
+
+n8 = number % 2 or number != 0
+number = number <= 32
+
+n9 = number % 2 or number != 0
+number = number <= 36
+
+print(f'Номер вашего купе: 1, место:{n1}')
+print(f'Номер вашего купе: 2, место:{n2}')
+print(f'Номер вашего купе: 3, место:{n3}')
+print(f'Номер вашего купе: 4, место:{n4}')
+print(f'Номер вашего купе: 5, место:{n5}')
+print(f'Номер вашего купе: 6, место:{n6}')
+print(f'Номер вашего купе: 7, место:{n7}')
+print(f'Номер вашего купе: 8, место:{n8}')
+print(f'Номер вашего купе: 9, место:{n9}')
+
