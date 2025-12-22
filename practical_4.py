@@ -61,4 +61,5 @@ number = int(input('Введите номер своего места: '))
 coupe = (number + 3) // 4
 
 
-print(coupe)
+print('Ваше купе под номером: ',coupe)
+
