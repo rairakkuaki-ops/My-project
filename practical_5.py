@@ -3,7 +3,7 @@
 print(f'Калькулятор налогов\n')
 
 income = float(input('Введите годовой доход(одно число): '))
-TAX_RATE = 0.13
+TAX_RATE = 0.87
 print(income)
 print('Налоговая ставка = 13%')
 print(f'{income/TAX_RATE:.2f}')
@@ -195,4 +195,5 @@ FUEL_COST= 49.5
 calculate_distance = calculate_fuel_consumption(distance, fuel)
 calculate_cost = calculate_distance * FUEL_COST
 print(f'Количество необходимого бензина: {calculate_distance}')
+
 print(f'Стоимость: {calculate_cost:.2f}')
