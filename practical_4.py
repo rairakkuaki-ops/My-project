@@ -49,7 +49,7 @@ print(f'Вычисление тригонометрического выраже
 import math
 x = int(input('Введите  градус: '))
 r = (math.radians(x))
-summ = (math.sin(r)+math.sin(r)+math.tan(1)**2*r)
+summ = (math.sin(r)+math.cos(r)+math.tan(1)**2*r)
 print('Тригонометрическое значение:',round(summ))
 
 #Задание 7
@@ -59,5 +59,6 @@ print(f'Какое купе\n')
 number = int(input('Введите номер своего места: '))
 
 coupe = (number + 3) // 4
+
 
 print(coupe)
