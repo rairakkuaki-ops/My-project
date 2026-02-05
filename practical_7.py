@@ -51,7 +51,7 @@ print('5. Лимонад - 90 руб')
 print(f'=' * 40)
 print(f'\n')
 drink = input('Введите номер напитка или название: ')
-number_of_servings = int(input('Ведите количество порций: '))
+number_of_servings = int(input('Введите количество порций: '))
 discount = input('Введите промакод(при наличии): ')
 
 COFFEE = 120
@@ -60,16 +60,47 @@ JUICE = 100
 WATER = 50
 LEMONADE = 90
 
+STUDENT = 0.2
+
+coffee_price = COFFEE * number_of_servings
+tea_price = TEA * number_of_servings
+juice_price = JUICE * number_of_servings
+water_price = WATER * number_of_servings
+lemonade_price = LEMONADE * number_of_servings
+
 match drink:
     case '1'|'Кофе':
-        print(f'Товар: Кофе☕\nЦена за порцию:{COFFEE}\nКоличество: {number_of_servings}')
+        print(f'Товар: Кофе☕\nЦена за порцию:{COFFEE} руб\nКоличество: {number_of_servings}\nСумма: {coffee_price} руб')
     case '2'|'Чай':
-        print(f'Товар: Чай🍵\nЦена за порцию:{TEA}\nКоличество: {number_of_servings}')
+        print(f'Товар: Чай🍵\nЦена за порцию:{TEA} руб\nКоличество: {number_of_servings}\nСумма: {tea_price} руб')
     case '3'|'Сок':
-        print(f'Товар: Сок🧃\nЦена за порцию:{JUICE}\nКоличество: {number_of_servings}')
+        print(f'Товар: Сок🧃\nЦена за порцию:{JUICE} руб\nКоличество: {number_of_servings}\nСумма: {juice_price} руб')
     case '4'|'Вода':
-        print(f'Товар: Вода🫗\nЦена за порцию:{WATER}\nКоличество: {number_of_servings}')
+        print(f'Товар: Вода🫗\nЦена за порцию:{WATER} руб\nКоличество: {number_of_servings}\nСумма: {water_price} руб')
     case '5'|'Лимонад':
-        print(f'Товар: Лимонад🥤\nЦена за порцию:{LEMONADE}\nКоличество: {number_of_servings}')
+        print(f'Товар: Лимонад🥤\nЦена за порцию:{LEMONADE} руб\nКоличество: {number_of_servings}\nСумма: {lemonade_price} руб')
     case _:
         print('☢Неизвестная команда')
+
+discounted_price_coffee = coffee_price * STUDENT
+discounted_price_tea = tea_price * STUDENT
+discounted_price_juice = juice_price * STUDENT
+discounted_price_water = water_price * STUDENT
+discounted_price_lemonade = lemonade_price * STUDENT
+
+match discount:
+    case 'STUDENT':
+        print(f'Скидка "STUDENT" (20%): -{discounted_price_coffee:.0f} руб')
+    case 'STUDENT':
+        print(f'Скидка "STUDENT" (20%): -{discounted_price_tea:.0f} руб')
+    case 'STUDENT':
+        print(f'Скидка "STUDENT" (20%): -{discounted_price_juice:.0f} руб')
+    case 'STUDENT':
+        print(f'Скидка "STUDENT" (20%): -{discounted_price_water:.0f} руб')
+    case 'STUDENT':
+        print(f'Скидка "STUDENT" (20%): -{discounted_price_lemonade:.0f} руб')
+
+print('=' * 40)
+print(f'К ОПЛАТЕ: ')
+print('=' * 40)
+
