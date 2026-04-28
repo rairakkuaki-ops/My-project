@@ -1,0 +1,95 @@
+print("\nЗадание 1\n")
+
+class Monster:
+    def __init__(self, name="Неизвестная тварь", hp = 100, dmg = 10):
+        self.name = name
+        self.hp = hp
+        self.dmg = dmg
+
+
+        print(f"Монстр: {name}")
+        print(f"HP: {hp}")
+        print(f"DMG: {dmg}\n")
+
+
+m1 = Monster("Дракула", 100, 3)
+m2 = Monster("Оборотень", 50, 5)
+
+
+
+
+print(f"Первый монстр: имя {m1.name}, здоровье {m1.hp}, урон {m1.dmg}")
+print(f"Первый монстр: имя {m2.name}, здоровье {m2.hp}, урон {m2.dmg}")
+
+print("\nЗадание 2\n")
+
+class Monster:
+    def __init__(self, name="Неизвестная тварь", hp = 100, dmg = 10):
+        self.name = name
+        self.hp = hp
+        self.dmg = dmg
+
+data1 = input('Введите данные по первому монстру: ').split()
+name1 = data1[0]
+hp1 = int(data1[1])
+dmg1 = int(data1[2])
+
+data2 = input('Введите данные по второму монстру: ').split()
+name2 = data2[0]
+hp2 = int(data2[1])
+dmg2 = int(data2[2])
+
+m1 = Monster(name1, hp1, dmg1)
+m2 = Monster(name2, hp2, dmg2)
+
+print(f'\n{m1.name} {m1.hp} {m1.dmg}\n')
+print(f'{m2.name} {m2.hp} {m2.dmg}')
+
+
+print("\nЗадание 3\n")
+
+class Monster:
+    def __init__(self, name="Неизвестная тварь", hp = 100, dmg = 10):
+        self.name = name
+        self.hp = hp
+        self.dmg = dmg
+
+data1 = input('Введите данные по первому монстру: ').split()
+name1 = data1[0]
+hp1 = int(data1[1])
+dmg1 = int(data1[2])
+
+data2 = input('Введите данные по второму монстру: ').split()
+name2 = data2[0]
+hp2 = int(data2[1])
+dmg2 = int(data2[2])
+
+m1 = Monster(name1, hp1, dmg1)
+m2 = Monster(name2, hp2, dmg2)
+
+print(f'\n{m1.name} {m1.hp} {m1.dmg}\n')
+print(f'{m2.name} {m2.hp} {m2.dmg}')
+
+print(f'\nМахычь! Файт!\n')
+
+
+while True:
+    print(f'\n{m1.name} наносит удар!')
+    m2.hp -= m1.dmg
+    if m2.hp < 0:
+        m2.hp = 0
+    print(f"У {m2.name} осталось {m2.hp} HP")
+
+    if m2.hp == 0:
+        print(f'Победил {m1.name}')
+        break
+
+    print(f"{m2.name}наносит удар!")
+    m1.hp -= m2.dmg
+    if m1.hp < 0:
+        m1.hp = 0
+    print(f'У {m1.name} осталось {m1.hp} HP')
+
+    if m1.hp == 0:
+        print(f'Победа {m2.name}!')
+        break
