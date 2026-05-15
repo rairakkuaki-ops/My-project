@@ -1,0 +1,29 @@
+print(f'Диагностика состояния здоровья\n')
+
+temperature = float(input('Введите температура(°C): '))
+pressure = float(input('Введите давление(верхнее): '))
+pulse = float(input('Введите пульс(уд/мин): '))
+
+TEMP_NORMAL_MAX = 37
+TEMP_NORMAL_MIN = 36
+TEMP_MILD_MAX = 38
+TEMP_MILD_MIN = 35
+
+PRESSURE_NORMAL_MAX = 130
+PRESSURE_NORMAL_MIN = 110
+PRESSURE_MILD_MAX = 140
+PRESSURE_MILD_MIN = 105
+
+PULSE_NORMAL_MAX = 100
+PULSE_NORMAL_MIN = 60
+PULSE_MILD_MAX = 110
+PULSE_MILD_MIN = 55
+
+if (TEMP_NORMAL_MIN <= temperature <= TEMP_NORMAL_MAX) and (PRESSURE_NORMAL_MIN <= pressure <= PRESSURE_NORMAL_MAX ) and (PULSE_NORMAL_MIN <= pulse <= PULSE_NORMAL_MAX ):
+    print('Нормальное состояни')
+elif ( TEMP_MILD_MIN <= temperature <= TEMP_NORMAL_MIN) or (TEMP_NORMAL_MAX  <= temperature <= TEMP_MILD_MAX) or (PRESSURE_MILD_MIN <= pressure <= PRESSURE_NORMAL_MIN ) or (PRESSURE_NORMAL_MAX <= pressure <= PRESSURE_MILD_MAX ) or (PULSE_MILD_MIN <= pulse <= PULSE_NORMAL_MIN) or (PULSE_NORMAL_MAX <= pulse <= PULSE_MILD_MAX):
+    print('Легкое недомогание')
+elif (temperature < TEMP_MILD_MIN) or (temperature > TEMP_MILD_MAX) or (pressure < PRESSURE_MILD_MIN) or (pressure > PRESSURE_MILD_MAX) or (pulse < PULSE_MILD_MIN) or (pulse > PULSE_MILD_MAX):
+    print('Требуется врач!')
+else:
+    print('Неизвестная команда')
