@@ -1,0 +1,42 @@
+print('Универсальный калькулятор площади')
+
+def calculate_rectangel_area(width, height):
+    """
+    Считает площадь прямоугольника.
+
+    Args:
+        width(float): введённая ширина
+        height (float): введённая высота
+    Returns:
+        float: нахождение площади прямоугольника
+    """
+    area = width * height
+    return area
+
+help(calculate_rectangel_area)
+
+def calculate_circle_area(radius):
+    """
+
+    Считает площадь круга.
+
+    Args:
+        radius (float): радиус круга
+        3.14 (float): число пи
+        radius ** 2 (float): возведение во вторую степень радиус
+    Returns:
+        float: нахождение площади круга
+    """
+    calculate_radius = 3.14 * radius ** 2
+    return calculate_radius
+
+help(calculate_circle_area)
+
+width = float(input('Введите ширину прямоугольника: '))
+height = float(input('Введите высоту прямоугольника: '))
+s = calculate_rectangel_area(width, height)
+print(f'Площадь прямоугольника является: {s}')
+
+radius = float(input('Введите радиус круга: '))
+r = calculate_circle_area(radius)
+print(f'Радиус круга является: {r}')
