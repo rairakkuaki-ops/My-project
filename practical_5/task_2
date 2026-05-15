@@ -1,0 +1,5 @@
+print(f'Калькулятор ИМТ\n')
+
+weight,heigt = map(float, input('Введите свой вес(в кг) и рост(в метрах): ').split())
+calculations = weight/heigt*heigt
+print(calculations)
