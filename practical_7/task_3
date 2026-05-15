@@ -1,0 +1,32 @@
+print(f'Интерактивное меню кафе\n')
+print('=' * 40)
+print('1. Кофе - 120 руб')
+print('2. Чай - 80 руб')
+print('3. Сок - 100 руб')
+print('4. Вода - 50 руб')
+print('5. Лимонад - 90 руб')
+print(f'=' * 40)
+print(f'\n')
+drink = input('Введите номер напитка или название: ')
+number_of_servings = int(input('Ведите количество порций: '))
+discount = input('Введите промакод(при наличии): ')
+
+COFFEE = 120
+TEA = 80
+JUICE = 100
+WATER = 50
+LEMONADE = 90
+
+match drink:
+    case '1'|'Кофе':
+        print(f'Товар: Кофе☕\nЦена за порцию:{COFFEE}\nКоличество: {number_of_servings}')
+    case '2'|'Чай':
+        print(f'Товар: Чай🍵\nЦена за порцию:{TEA}\nКоличество: {number_of_servings}')
+    case '3'|'Сок':
+        print(f'Товар: Сок🧃\nЦена за порцию:{JUICE}\nКоличество: {number_of_servings}')
+    case '4'|'Вода':
+        print(f'Товар: Вода🫗\nЦена за порцию:{WATER}\nКоличество: {number_of_servings}')
+    case '5'|'Лимонад':
+        print(f'Товар: Лимонад🥤\nЦена за порцию:{LEMONADE}\nКоличество: {number_of_servings}')
+    case _:
+        print('☢Неизвестная команда')
