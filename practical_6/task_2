@@ -1,0 +1,21 @@
+print(f'Цвета колеса рулетки\n')
+
+number = int(input('Введиет номер кармана: '))
+
+RULLETE_RANGE_POINT1 = 15
+RULLETE_RANGE_POINT2 = 19
+RULLETE_RANGE_POINT3 = 30
+RULLETE_RANGE_POINT4 = 42
+
+if number == 0:
+    print('Зелёный')
+elif ((1 <= number <= RULLETE_RANGE_POINT1) or (RULLETE_RANGE_POINT2+1 <= number <= RULLETE_RANGE_POINT3)) and number % 2 == 0:
+    print('Чёрный')
+elif ((1 <= number <= RULLETE_RANGE_POINT1) or (RULLETE_RANGE_POINT2+1 <= number <= RULLETE_RANGE_POINT3)) and number % 2 == 1:
+    print('Красный')
+elif ((RULLETE_RANGE_POINT1+1 <= number <= RULLETE_RANGE_POINT2) or (RULLETE_RANGE_POINT3+1 <= number <= RULLETE_RANGE_POINT4)) and number % 2 == 0:
+    print('Красный')
+elif ((RULLETE_RANGE_POINT1+1 <= number <= RULLETE_RANGE_POINT2) or (RULLETE_RANGE_POINT3+1 <= number <= RULLETE_RANGE_POINT4)) and number % 2 == 1:
+    print('Чёрный')
+else:
+    print('Ошибка ввода')
