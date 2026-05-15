@@ -1,0 +1,35 @@
+print('Банкомат')
+
+B5000 = 5000
+B2000 = 2000
+B1000 = 1000
+B500 = 500
+B200 = 200
+B100 = 100
+
+deposit_money = int(input('Введите сумму которую хотите снять(кратное 100): '))
+
+count_5000 = deposit_money // B5000
+deposit_money = deposit_money % B5000
+
+count_2000 = deposit_money // B2000
+deposit_money = deposit_money % B2000
+
+count_1000 = deposit_money // B1000
+deposit_money = deposit_money % B1000
+
+count_500 = deposit_money // B500
+deposit_money = deposit_money % B500
+
+count_200 = deposit_money // B200
+deposit_money = deposit_money % B200
+
+count_100 = deposit_money // B100
+deposit_money = deposit_money % B100
+
+print(f'Количество 5000: {count_5000}')
+print(f'Количество 2000: {count_2000}')
+print(f'Количество 1000: {count_1000}')
+print(f'Количество 500: {count_500}')
+print(f'Количество 200: {count_200}')
+print(f'Количество 100: {count_100}')
