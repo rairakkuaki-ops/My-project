@@ -1,0 +1,21 @@
+def calculate_fuel_consumption(distance_km, fuel_per_100km):
+    """
+    Вычисление поездок на такси
+    Args:
+        distance_km (float): какое растояние проехал
+        fuel_per_100km (float): сколько литров потратил
+    Returns:
+        float: общий расход топлива в литрах
+    """
+    calculate_rides = distance_km * (fuel_per_100km/100)
+    return calculate_rides
+
+help(calculate_fuel_consumption)
+
+distance = float(input('Введите какое количество км проехали: '))
+fuel = float(input('Введите какоЙ расход топлива(л/100 км): '))
+FUEL_COST= 49.5
+calculate_distance = calculate_fuel_consumption(distance, fuel)
+calculate_cost = calculate_distance * FUEL_COST
+print(f'Количество необходимого бензина: {calculate_distance}')
+print(f'Стоимость: {calculate_cost:.2f}')
