@@ -1,0 +1,3 @@
+import  math
+num = float(input('Введите не целое число x: '))
+print(round(num) + math.ceil(num))
