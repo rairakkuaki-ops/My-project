@@ -1,0 +1,18 @@
+print(f'Ход слона\n')
+
+Cell_horizontally1 = int(input('Введите число для первой клетки по горизонтали(от 1 до 8): '))
+Cell_vertically1 = int(input('Введите число для первой клетки по вертекали(от 1 до 8): '))
+Cell_horizontally2 = int(input('Введите число для второй клетки по горизонтали(от 1 до 8): '))
+Cell_vertically2 = int(input('Введите число для второй клетки по вертекали(от 1 до 8): '))
+
+if (1 <= Cell_horizontally1 <= 8) and (1 <= Cell_vertically1 <= 8) and (1 <= Cell_horizontally2 <= 8) and (1 <= Cell_vertically2 <= 8):
+
+    sum1 = (Cell_horizontally1 - Cell_horizontally2)
+    sum2 = (Cell_vertically1  - Cell_vertically2)
+
+    if abs(sum1) == abs(sum2):
+        print('YES')
+    else:
+        print('NO')
+else:
+    print('Нельзя число больше 8!')
