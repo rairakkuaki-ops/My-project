@@ -1,0 +1,8 @@
+m = int(input('Введите первое целое число: '))
+n = int(input('Введите второе целое число: '))
+if m<n:
+    for i in range(m, n+1):
+        print(i)
+else:
+    for i in range(m, n-1, -1):
+        print(i)
