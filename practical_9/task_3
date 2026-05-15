@@ -1,0 +1,26 @@
+salary = int(input('Сумма за услугу ведьмака: '))
+sum_coin = 0 #счётчик
+
+coin_1 = 1 #константы
+coin_2 = 5
+coin_3 = 10
+coin_4 = 25
+
+while salary > 0: #начало цикла
+    if salary >= coin_4: #сравнение запртала больше или равна 25
+        salary -= coin_4 #от зарплтаты отнимаем 25
+        sum_coin += 1 #к текущему количеству монет добавляем одну
+    elif salary >= coin_3:
+        salary -= coin_3
+        sum_coin += 1
+    elif salary >= coin_2:
+        salary -= coin_2
+        sum_coin += 1
+    else:
+        salary -= coin_1
+        sum_coin += 1
+    '''
+    во всём цикле if-else считаем какие монеты нам подходят, 
+    чтобы в конечном итоге вывелось сколько монет нам нужно 
+    '''
+print(sum_coin)
