@@ -1,0 +1,7 @@
+print(f'Калькулятор налогов\n')
+
+income = float(input('Введите годовой доход(одно число): '))
+TAX_RATE = 0.13
+print(income)
+print('Налоговая ставка = 13%')
+print(f'{income/TAX_RATE:.2f}')
