@@ -1,0 +1,7 @@
+print(f'Вычисление тригонометрического выражения\n')
+
+import math
+x = int(input('Введите  градус: '))
+r = (math.radians(x))
+summ = (math.sin(r)+math.cos(r)+math.tan(1)**2*r)
+print('Тригонометрическое значение:',round(summ))
