@@ -1,0 +1,19 @@
+start = 0 #начало счётчика
+position_Alexandra = -1 #позиция отрицательная, потому что её ещё нет в спииске
+position_Levon = -1
+
+while True: #бесконечный цикл
+    name = input('Введите имя: ')
+
+    if name == '':
+        break #резко останавливает цикл если пользователь ничего не ввёл
+
+    start += 1 #уыеличивает число на один больше
+
+    if name == 'Александра':
+        position_Alexandra = start #запоминате позицию Александры
+    elif name == 'Левон':
+        position_Levon = start #запоминате позицию Левон
+
+result = position_Levon - position_Alexandra - 1 #считает сколько людей межде Левон и Александрой
+print(result)
