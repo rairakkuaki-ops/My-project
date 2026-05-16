@@ -1,0 +1,10 @@
+max_number = 0 #счётчик
+
+while True: #начало бесконечного циклв
+    num = int(input('Введите число: '))
+    if num == 0:
+        break #если чило будет равно нулю, то принудительно остановить цикл
+    elif num > max_number:
+        max_number = num #присваивание, меняем старое значение max_number на новое
+
+print(max_number)
