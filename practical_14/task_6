@@ -1,0 +1,9 @@
+prices = list(map(int, input('Цены предметов: ').split()))
+
+asc = sorted(prices)
+desc = sorted(prices, reverse=True)
+
+print(f'Сортировка по возрастанию: {asc}')
+print(f'Сортировка по убыванию: {desc}')
+print(f'Оригинальный порядок (от старых к новым): {prices}')
+print(f'Обратный порядок (от новых к старым): {list(reversed(prices))}')
