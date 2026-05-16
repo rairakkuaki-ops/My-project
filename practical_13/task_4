@@ -1,0 +1,16 @@
+ip = input()
+parts = ip.split('.')
+
+if len(parts) != 4:
+    print('НЕТ')
+else:
+    valid = True
+    for p in parts:
+        if not p.isdigit():
+            valid = False
+            break
+        num = int(p)
+        if num < 0 or num > 255:
+            valid = False
+            break
+    print('ДА')
