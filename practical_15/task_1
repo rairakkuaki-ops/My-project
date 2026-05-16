@@ -1,0 +1,56 @@
+#задание 1.1
+
+maze = input('Введите 25 символов лабиринта: ')
+
+print('Лабиринт:')
+for i in range(0, 25, 5):
+    print(maze[i:i+5])
+
+#задание 1.2
+
+start_pos = maze.find('н')
+row = start_pos // 5
+col = start_pos % 5
+print(f'Вход находится в строке {row}, столбце {col}')
+
+#задание 1.3
+
+end_pos = maze.find('ф')
+row_end = end_pos // 5
+col_end = end_pos % 5
+print(f'Выход находится в строке {row_end}, столбце {col_end}')
+
+#задание 1.4
+
+distance = abs(row - row_end) + abs(col - col_end)
+print(f'Расстояние от входа до выхода: {distance} шагов')
+
+#задание 1.5
+
+coins_count = maze.count("м")
+print("Монеты:", "🟡" * coins_count, f"x{coins_count}")
+
+#задание 1.6
+
+hp = 100
+hp -= maze.count('л') * 10   #ловушки
+hp -= maze.count('з') * 50   #враги
+
+hearts_full = hp // 10
+hearts_empty = 10 - hearts_full
+
+print('♥' * hearts_full + '♡' * hearts_empty)
+
+#задание 1.7
+
+maze_emoji = maze.replace('0', '⬜')
+maze_emoji = maze_emoji.replace('1', '⬛')
+maze_emoji = maze_emoji.replace('л', '🔷')
+maze_emoji = maze_emoji.replace('м', '🟡')
+maze_emoji = maze_emoji.replace('ф', '🟫')
+maze_emoji = maze_emoji.replace('з', '🐷')
+maze_emoji = maze_emoji.replace('н', '⭐')
+
+print("Лабиринт с эмодзи:")
+for i in range(0, 25, 5):
+    print(maze_emoji[i:i+5])
