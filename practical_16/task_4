@@ -1,6 +1,6 @@
-cia = set(input().split())
-mi6 = set(input().split())
-kgb = set(input().split())
+cia = set(input('Введите имя1: ').split())
+mi6 = set(input('Введите имя2: ').split())
+kgb = set(input('Введите имя3: ').split())
 
 result = (cia & mi6) - kgb
 print(' '.join(sorted(result, reverse=True)))
