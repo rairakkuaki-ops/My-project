@@ -1,0 +1,22 @@
+import random
+
+matrix = [[random.randint(1, 10) for _ in range(4)] for _ in range(3)]
+print('Исходная матрица:', matrix)
+
+sums = []
+i = 0
+while i < len(matrix):
+    row_sum = 0
+    j = 0
+    while j < len(matrix[i]):
+        row_sum += matrix[i][j]
+        j += 1
+    sums.append(row_sum)
+    i += 1
+
+total_sum = sum(sums)
+max_row_index = sums.index(max(sums))
+
+print(f'Суммы строк: {sums}')
+print(f'Общая сумма всех элементов: {total_sum}')
+print(f'Строка с максимальной суммой (индекс {max_row_index}) сумма = {sums[max_row_index]}')
