@@ -1,0 +1,9 @@
+dep1 = set(map(int, input('Ввод1: ').split()))
+dep2 = set(map(int, input('Ввод2: ').split()))
+dep3 = set(map(int, input('Ввод3: ').split()))
+
+all_employees = dep1 | dep2 | dep3
+all_ids = set(range(0, 11))
+
+ghosts = sorted(all_ids - all_employees)
+print(' '.join(map(str, ghosts)))
