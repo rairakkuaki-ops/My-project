@@ -1,0 +1,4 @@
+words = input().split()
+unique_words = set(words)
+print('Количество:', len(unique_words))
+print('Слова:', ' '.join(sorted(unique_words)))
