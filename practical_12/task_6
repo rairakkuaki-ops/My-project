@@ -1,0 +1,8 @@
+word = input('Введите слово: ')
+chars = list(word)          #список символов
+reversed_chars = chars[::-1]  #перевёрнутая копия
+
+if chars == reversed_chars:
+    print('Это палиндром)
+else:
+    print('Не палиндром')
