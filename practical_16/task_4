@@ -1,0 +1,6 @@
+cia = set(input().split())
+mi6 = set(input().split())
+kgb = set(input().split())
+
+result = (cia & mi6) - kgb
+print(' '.join(sorted(result, reverse=True)))
