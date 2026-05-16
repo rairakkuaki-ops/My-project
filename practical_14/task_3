@@ -1,0 +1,19 @@
+import random
+
+nested_list = [[random.randint(-10, 10) for _ in range(4)] for _ in range(3)]
+print('Исходный список:', nested_list)
+
+filtered_list = []
+
+i = 0
+while i < len(nested_list):
+    new_row = []
+    j = 0
+    while j < len(nested_list[i]):
+        if nested_list[i][j] > 0:
+            new_row.append(nested_list[i][j])
+        j += 1
+    filtered_list.append(new_row)
+    i += 1
+
+print('Только положительные элементы:', filtered_list)
