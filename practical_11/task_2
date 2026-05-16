@@ -1,0 +1,10 @@
+print('\nСтаринная задача\n')
+
+print(f'бык(bull) стоит 10 рублей;\nкорова(cow) — 5 рублей;\nтелёнок(calf) — 0.5 рубля;\n')
+
+for bull in range(11):
+    for cow in range(21):
+        for calf in range(101):
+            if bull + cow + calf > 0:
+                if 10*bull + 5*cow + 0.5*calf == 100:
+                    print(f'Быков: {bull}\nКоров: {cow}\nТелят: {calf}\n')
