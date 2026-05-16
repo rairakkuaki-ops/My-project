@@ -1,5 +1,5 @@
-A = set(input().split())
-B = set(input().split())
+A = set(input('Ввод: ').split())
+B = set(input('Ввод: ').split())
 
 common = sorted(A & B)
 lost = sorted(A - B)
