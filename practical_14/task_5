@@ -1,0 +1,9 @@
+N = int(input('Сколько предметов можно унести?'))
+items = list(map(int, input('Ценности предметов: ').split()))
+
+items.sort(reverse=True)
+
+best_items = items[:N]
+max_sum = sum(best_items)
+
+print(f'Максимальная сумма: {max_sum}')
