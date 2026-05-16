@@ -1,0 +1,5 @@
+path = input('Введите название: ')
+parts = path.split('\\')
+
+for part in parts:
+    print(part)
