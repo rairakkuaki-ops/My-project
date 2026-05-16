@@ -1,6 +1,6 @@
 print('\nВсе вместе\n')
 
-num = int(input("Введите натуральное число: "))
+num = int(input('Введите натуральное число: '))
 
 count_3 = 0
 count_last = 0
