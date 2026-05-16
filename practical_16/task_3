@@ -1,0 +1,8 @@
+A = set(input().split())
+B = set(input().split())
+
+common = sorted(A & B)
+lost = sorted(A - B)
+
+print('Общие:', ' '.join(common))
+print('Потерянные:', ' '.join(lost))
