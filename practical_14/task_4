@@ -1,0 +1,23 @@
+import random
+
+matrix = [[random.randint(1, 5) for _ in range(3)] for _ in range(4)]
+print('Матрица:')
+for row in matrix:
+    print(row)
+
+search_value = int(input('Какое число ищем?'))
+
+positions = []
+i = 0
+while i < len(matrix):
+    j = 0
+    while j < len(matrix[i]):
+        if matrix[i][j] == search_value:
+            positions.append((i, j))
+        j += 1
+    i += 1
+
+if positions:
+    print(f'Число {search_value} найдено на позициях: {positions}')
+else:
+    print(f'Число {search_value} не найдено')
