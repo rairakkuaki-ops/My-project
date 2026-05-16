@@ -1,0 +1,20 @@
+import random
+
+matrix = [[random.randint(1, 100) for _ in range(3)] for _ in range(3)]
+
+print('Исходный список:', matrix)
+
+max_value = matrix[0][0]
+max_i, max_j = 0, 0
+
+i = 0
+while i < len(matrix):
+    j = 0
+    while j < len(matrix[i]):
+        if matrix[i][j] > max_value:
+            max_value = matrix[i][j]
+            max_i, max_j = i, j
+        j += 1
+    i += 1
+
+print(f'Максимальный элемент {max_value} находится в строке {max_i}, столбце {max_j}')
