@@ -1,0 +1,5 @@
+def get_next_prime(num):
+    next_num = num + 1
+    while not is_prime(next_num):
+        next_num += 1
+    return next_num
