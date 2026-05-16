@@ -1,0 +1,9 @@
+log1 = set(input('Введите первый логин: ').split())
+log2 = set(input('Введите второй логин: ').split())
+log3 = set(input('Введите третий логин: ').split())
+
+all_ips = log1 | log2 | log3 #объедиенеие
+in_all = log1 & log2 & log3
+
+result = sorted(all_ips - in_all)
+print(' '.join(result))
