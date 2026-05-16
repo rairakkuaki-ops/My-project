@@ -1,0 +1,45 @@
+print('\nВсе вместе\n')
+
+num = int(input("Введите натуральное число: "))
+
+count_3 = 0
+count_last = 0
+count_even = 0
+sum_5 = 0
+prod_7 = 1
+count_0_and_5 = 0
+
+last_digit = num % 10
+
+temp = num
+
+while temp > 0:
+    digit = temp % 10
+
+    # считаем цифры 3
+    if digit == 3:
+        count_3 += 1
+
+    if digit == last_digit:
+        count_last += 1
+
+    if digit % 2 == 0:
+        count_even += 1
+
+    if digit > 5:
+        sum_5 += digit
+
+    if digit > 7:
+        prod_7 *= digit
+
+    if digit == 0 or digit == 5:
+        count_0_and_5 += 1
+
+    temp //= 10
+
+print(f'Количество цифр 3: {count_3}')
+print(f'Сколько раз встречается последняя цифра: {count_last}')
+print(f'Количество чётных цифр: {count_even}')
+print(f'Сумму цифр, больших пяти: {sum_5}')
+print(f'Произведение цифр, больших семи: {prod_7}')
+print(f'Сколько раз встречаются цифры 0 и 5 (всего суммарно): {count_0_and_5}')
