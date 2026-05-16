@@ -1,0 +1,8 @@
+n = int(input('Введите n: '))
+numbers = []  #пустой список для нечётных чисел
+
+for i in range(1, n + 1):
+    if i % 2 != 0:  #проверка на нечётность
+        numbers.append(i)
+
+print(f'Нечётные числа от 1 до {n}: {numbers}')
