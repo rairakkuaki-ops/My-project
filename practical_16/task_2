@@ -1,0 +1,9 @@
+allowed = set(map(int, input().split()))
+incoming = list(map(int, input().split()))
+
+for id_ in incoming:
+    if id_ in allowed:
+        print('OK')
+    else:
+        print('ADDED')
+        allowed.add(id_)
