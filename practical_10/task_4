@@ -1,0 +1,16 @@
+total = 0
+
+while True:
+    num = int(input('Введите цену товара: '))
+    if num == 0:
+        break
+    elif num < 0:
+        print('🚫Ошибка цены!')
+        continue
+    elif num > 0:
+        total += num
+
+if total > 1000:
+    print(f'Цена со скидкой скидка: {total*0.9:.0f}')
+else:
+    print(f'Цена без скидки: {total}')
