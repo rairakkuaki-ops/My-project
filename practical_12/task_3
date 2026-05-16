@@ -1,0 +1,9 @@
+users = ['Admin', 'Guest', 'User', 'Bot']
+
+users[2] = 'Moderator' #Меняем user на moderator
+
+users[-1] = 'SuperAdmin' #Меняем  bot на SuperAdmin
+
+users.append('Newbie') #Добавляем в конец списка newbie
+
+print(f'Итоговый список: {users}')
