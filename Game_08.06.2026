@@ -1,0 +1,215 @@
+import random
+
+#задание 1
+
+class monster:
+    def __init__(self, name, hp, dmg):
+        self.__name = name
+        self.__hp = hp
+        self.__dmg = dmg
+
+    def get_name(self):
+        return self.__name
+    def get_hp(self):
+        return self.__hp
+    def get_dmg(self):
+        return self.__dmg
+
+    def set_hp(self, value):
+        if value < 0:
+            self.__hp = 0
+        else:
+            self.__hp = value
+
+    def is_alive(self):
+        return self.__hp > 0
+
+    def show_status(self):
+        print(f'{self.__name} HP: {self.__hp}')
+
+# m = monster('Вампир', 100, 10)
+# m.show_status()
+# m.set_hp(-0)
+# m.show_status()
+# print(m.is_alive())
+
+    def take_damage(self, damage):
+        self.set_hp(self.get_hp() - damage)
+    def attack_hunter(self, hunter):
+        hunter.set_hp(hunter.get_hp() - self.get_dmg())
+#задание 2
+
+class Zombie(monster):
+    def __init__(self, name):
+        super().__init__(name, 120, 10)
+
+    def take_damage(self, damage):
+        self.set_hp(self.get_hp() - damage)
+        print(f'{self.get_name()} теряет конечность. Получен урон {damage} HP: {self.get_hp()}')
+
+    def attack_hunter(self, hunter):
+        hunter.set_hp(hunter.get_hp() - self.get_dmg())
+        print(f'{self.get_name()} атакует охотника и наносит {self.get_dmg()} урона.')
+
+class Vampire(monster):
+    def __init__ (self, name):
+        super().__init__(name, 80, 15)
+
+    def take_damage(self, damage):
+
+        damage -= 5
+        if damage <= 0:
+            damage = 0
+        self.set_hp(self.get_hp() - damage)
+        print(f'{self.get_name()} поглащает 5 урона. Получено {damage}. HP: {self.get_hp()}')
+
+
+
+class Ghost(monster):
+    def __init__(self, name):
+        super().__init__(name, 60, 20)
+
+    def take_damage(self, damage):
+        if random.random() < 0.3:
+            print(f'{self.get_name()} уклонился от удара. Урон не получен.')
+            return 0
+        else:
+            self.set_hp(self.get_hp() - damage)
+            print((f'{self.get_name()} получает урон. Получен урон: {damage}. HP: {self.get_hp()}'))
+
+
+class Werewolf(monster):
+    def __init__(self, name):
+        super().__init__(name, 100, 25)
+
+    def take_damage(self, damage):
+        self.set_hp(self.get_hp() - damage)
+
+        if self.get_hp() < 50:
+            print(f'{self.get_name()} трансформируется. Сила увеличивается.')
+            print(f'{self.get_name()} получает урон: {damage}. HP: {self.get_hp()}')
+
+
+# v = Vampire('Дракула')
+# v.take_damage(30)
+#
+# z = Zombie('Зомби')
+# z.take_damage(30)
+
+#задание 3
+
+class Weapon:
+
+    def __init__(self, name):
+        self.name = name
+
+class SilverSword(Weapon):
+    def __init__(self):
+        super().__init__('Серебряный меч')
+
+    def use(self, monster):
+        print(f'{self.name} атакует {monster.get_name()}')
+        damage = 30
+        if isinstance(monster, Werewolf):
+            print('Серебро обжигает оборотня. Урон +10')
+            monster.take_damage(30)
+
+class HolyWater(Weapon):
+        def __init__(self):
+            super().__init__('Святая вода')
+
+        def use(self, monster):
+            print(f'{self.name} атакует {monster.get_name()}')
+            monster.take_damage(30)
+
+class CrossbowBolt(Weapon):
+    def __init__(self):
+        super().__init__('Арбалет')
+
+    def use(self, monster):
+        print(f'{self.name} атакует {monster.get_name()}')
+        monster.take_damage(25)
+
+# weapons = [SilverSword(), HolyWater(), CrossbowBolt()]
+# zombie = Zombie('Зомби')
+# for w in weapons:
+#      w.use(zombie)
+
+#задание 4
+
+class Hunter:
+    def __init__(self, name, hp = 100):
+        self.__name = name
+        self.__hp = hp
+        self.__inventory = []
+
+    def get_name(self):
+        return self.__name
+    def get_hp(self):
+        return self.__hp
+
+    def set_hp(self, value):
+        if value < 0:
+            self.__hp = 0
+        else:
+            self.__hp = value
+
+    def add_weapon (self, weapon):
+        self.__inventory.append(weapon)
+
+    def show_inventory(self):
+        print(self.__inventory)
+
+    def attack(self, monster):
+        for weapon in self.__inventory:
+            if monster.is_alive():
+                weapon.use(monster)
+
+    def is_alive(self):
+         if self.get_hp() > 0:
+            return True
+         else:
+            return False
+
+    def attack(self, monster):
+        for weapon in self.__inventory:
+            if monster.is_alive():
+                weapon.use(monster)
+
+# h = Hunter('Герой')
+# print(h.get_name())
+# print(h.get_hp())
+# print(h.set_hp(-100))
+# print(h.get_hp())
+# print(h.is_alive())
+# h.add_weapon('CrossbowBolt')
+# h.show_inventory()
+
+
+#задание 5
+
+def run():
+    hunter = Hunter('Герой', 100)
+
+    hunter.add_weapon(SilverSword())
+    hunter.add_weapon(CrossbowBolt())
+    hunter.add_weapon(HolyWater())
+
+    monsters = [Zombie('Кирилл'), Vampire('Михалыч'), Ghost('Валера'), Werewolf('Пёс')]
+
+    for monster in monsters:
+        print(f'Родился: {monster.get_name()}')
+
+        while monster.is_alive() and hunter.is_alive():
+            monster.show_status()
+            print(f'Здоровье охотника: {hunter.get_hp()}')
+
+            hunter.attack(monster)
+
+            if monster.is_alive():
+                monster.attack_hunter(hunter)
+            if not hunter.is_alive():
+                print('You died')
+
+            print(f'{monster.get_name()} умер')
+run()
