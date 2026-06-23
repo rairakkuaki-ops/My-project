@@ -45,11 +45,11 @@ class Zombie(monster):
 
     def take_damage(self, damage):
         self.set_hp(self.get_hp() - damage)
-        print(f'{self.get_name()} теряет конечность. Получен урон {damage} HP: {self.get_hp()}')
+        print(f'\n{self.get_name()} теряет конечность. Получен урон {damage} HP: {self.get_hp()} 🖔')
 
     def attack_hunter(self, hunter):
         hunter.set_hp(hunter.get_hp() - self.get_dmg())
-        print(f'{self.get_name()} атакует охотника и наносит {self.get_dmg()} урона.')
+        print(f'\n{self.get_name()} атакует охотника и наносит {self.get_dmg()} урона. ⚔')
 
 class Vampire(monster):
     def __init__ (self, name):
@@ -61,7 +61,7 @@ class Vampire(monster):
         if damage <= 0:
             damage = 0
         self.set_hp(self.get_hp() - damage)
-        print(f'{self.get_name()} поглащает 5 урона. Получено {damage}. HP: {self.get_hp()}')
+        print(f'\n{self.get_name()} поглащает 5 урона. Получено {damage}. HP: {self.get_hp()} ❈')
 
 
 
@@ -71,11 +71,11 @@ class Ghost(monster):
 
     def take_damage(self, damage):
         if random.random() < 0.3:
-            print(f'{self.get_name()} уклонился от удара. Урон не получен.')
+            print(f'\n{self.get_name()} уклонился от удара. Урон не получен. ⛕')
             return 0
         else:
             self.set_hp(self.get_hp() - damage)
-            print((f'{self.get_name()} получает урон. Получен урон: {damage}. HP: {self.get_hp()}'))
+            print((f'\n{self.get_name()} получает урон. Получен урон: {damage}. HP: {self.get_hp()} 🌢'))
 
 
 class Werewolf(monster):
@@ -84,10 +84,9 @@ class Werewolf(monster):
 
     def take_damage(self, damage):
         self.set_hp(self.get_hp() - damage)
-
         if self.get_hp() < 50:
-            print(f'{self.get_name()} трансформируется. Сила увеличивается.')
-            print(f'{self.get_name()} получает урон: {damage}. HP: {self.get_hp()}')
+            print(f'\n{self.get_name()} трансформируется. Сила увеличивается. ✧')
+            print(f'\n{self.get_name()} получает урон: {damage}. HP: {self.get_hp()} 🌢')
 
 
 # v = Vampire('Дракула')
@@ -108,18 +107,21 @@ class SilverSword(Weapon):
         super().__init__('Серебряный меч')
 
     def use(self, monster):
-        print(f'{self.name} атакует {monster.get_name()}')
+        print(f'\n{self.name} атакует {monster.get_name()} ⚔')
         damage = 30
         if isinstance(monster, Werewolf):
-            print('Серебро обжигает оборотня. Урон +10')
+            print('\nСеребро обжигает оборотня. Урон +10 🌢')
+            damage += 10
+            monster.take_damage(30)
+        else:
             monster.take_damage(30)
 
 class HolyWater(Weapon):
         def __init__(self):
-            super().__init__('Святая вода')
+            super().__init__('\nСвятая вода')
 
         def use(self, monster):
-            print(f'{self.name} атакует {monster.get_name()}')
+            print(f'\n{self.name} атакует {monster.get_name()} ⚔')
             monster.take_damage(30)
 
 class CrossbowBolt(Weapon):
@@ -127,7 +129,7 @@ class CrossbowBolt(Weapon):
         super().__init__('Арбалет')
 
     def use(self, monster):
-        print(f'{self.name} атакует {monster.get_name()}')
+        print(f'\n{self.name} атакует {monster.get_name()} ⚔')
         monster.take_damage(25)
 
 # weapons = [SilverSword(), HolyWater(), CrossbowBolt()]
@@ -166,15 +168,7 @@ class Hunter:
                 weapon.use(monster)
 
     def is_alive(self):
-         if self.get_hp() > 0:
-            return True
-         else:
-            return False
-
-    def attack(self, monster):
-        for weapon in self.__inventory:
-            if monster.is_alive():
-                weapon.use(monster)
+         return self.__hp > 0
 
 # h = Hunter('Герой')
 # print(h.get_name())
@@ -182,7 +176,7 @@ class Hunter:
 # print(h.set_hp(-100))
 # print(h.get_hp())
 # print(h.is_alive())
-# h.add_weapon('CrossbowBolt')
+# h.add_weapon(CrossbowBolt())
 # h.show_inventory()
 
 
@@ -197,19 +191,20 @@ def run():
 
     monsters = [Zombie('Кирилл'), Vampire('Михалыч'), Ghost('Валера'), Werewolf('Пёс')]
 
-    for monster in monsters:
-        print(f'Родился: {monster.get_name()}')
+    for m in monsters:
+        print(f'\nРодился: {m.get_name()} ★')
 
-        while monster.is_alive() and hunter.is_alive():
-            monster.show_status()
-            print(f'Здоровье охотника: {hunter.get_hp()}')
+        while m.is_alive() and hunter.is_alive():
+            m.show_status()
+            print(f'\nЗдоровье охотника: {hunter.get_hp()} ❤')
 
-            hunter.attack(monster)
+            hunter.attack(m)
 
-            if monster.is_alive():
-                monster.attack_hunter(hunter)
+            if m.is_alive():
+                m.attack_hunter(hunter)
             if not hunter.is_alive():
-                print('You died')
+                print('\nYou died ☠')
+                return
 
-            print(f'{monster.get_name()} умер')
+        print(f'\n{m.get_name()} умер 🕱')
 run()
